@@ -1,0 +1,54 @@
+---
+title: "Sprawl script"
+author: "Henry Luan"
+date: "May 10, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+##Load required libraries & set working directory
+```{r}
+library(rgdal)
+library(dplyr)
+library(Hmisc)
+library(R2WinBUGS)
+library(maptools)
+library(spdep)
+library(car)
+library(readtext)
+library(reticulate)
+setwd("C:/Users/Henry/Documents/sprawl_score")
+```
+
+```{r}
+GDB_path <- paste(getwd(), "/Sprawl.gdb", sep="")
+CTs <- readOGR(GDB_path,"Sprawl_indicators_11")
+##DAs within the CTs
+DAs <- readOGR(GDB_path, "DAs_within_CTs_prj_11")
+```
+
+##Identify DAs belonging to the same CT, and calculate coefficients of variation in population & employment densities
+```{r}
+CTUID <- CTs@data$CTUID
+DA_within <- filter(DAs@data, DAs@data$CTUID==CTUID[1])
+```
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
