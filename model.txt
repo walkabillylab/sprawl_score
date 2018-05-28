@@ -1,0 +1,42 @@
+
+    
+    model{
+    
+    for(j in 1:M)
+{
+  for(i in 1:N)
+  {
+  ind[j,i] ~ dnorm(mu[j,i], tau[j])
+  mu[j,i] <- alpha[j] + delta[j]*index[i]
+  }
+  alpha[j] ~ dflat()
+  # tau[j] <- pow(sd[j],-2)
+  # sd[j] ~ dunif(0,100)
+  tau[j] ~ dgamma(0.5,0.0005)
+  }
+  
+  # delta[1] ~ dlnorm(0,0.01)
+  # for(j in 2:M)
+  # {
+  # delta[j] ~ dnorm(0,0.001)
+  # }
+  delta[1] ~ dlnorm(0,0.01)
+  for(j in 2:M)
+  {
+    delta[j] ~ dnorm(0,0.001)
+  }
+  
+  index[1:N] ~ car.normal(adj[], weights[], num[],1)
+  # for(i in 1:N)
+  # {
+  #   CTrank[i] <- rank(index[], i)
+  #   hotspot[i] <- step(-CTrank[i]+1090)
+  # }
+
+    for(k in 1:sumNumNeigh)
+    {
+    weights[k] <- 1
+    }
+    }
+    
+    
