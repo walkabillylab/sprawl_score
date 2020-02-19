@@ -52,7 +52,7 @@ This study included urban sprawl indicators along four dimensions, density, mix 
 Sprawl dimension     | Sprawl indicator  
 ------------------------------------------------------
 Density              |
---------------------
+-------------------
 Centering 
 --------------------
 Land use 
