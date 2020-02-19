@@ -49,12 +49,4 @@ The objective this research is to develop a multi-dimensional, nationwide urban 
 This study included urban sprawl indicators along four dimensions, density, mix use, street connectivity, and centering. These dimensions have been widely used in the urban sprawl/compactness studies in North America (Ewing et al., 2014, 2003). Descriptions of these indicators are provided in Table 1.
 ### Table 1: indicators used to develop the composite urban sprawl index 
 
-Sprawl dimension     | Sprawl indicator  
-------------------------------------------------------
-Density              |
--------------------
-Centering 
---------------------
-Land use 
---------------------
-Street accessibility
+
