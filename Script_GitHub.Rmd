@@ -1,0 +1,209 @@
+---
+title: "Script_GitHub"
+author: "Henry Luan"
+date: "May 17, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Load required libraries & set working directory
+```{r}
+library(rgdal)
+library(dplyr)
+library(Hmisc)
+library(R2WinBUGS)
+library(maptools)
+library(spdep)
+library(car)
+library(readtext)
+library(reticulate)
+library(here)
+```
+
+```{r}
+GDB_path <- paste(here(), "/Sprawl.gdb", sep="")
+CTs <- readOGR(GDB_path,"Sprawl_indicators_11")
+##DAs within the CTs
+DAs <- readOGR(GDB_path, "DAs_within_CTs_prj_11")
+```
+##Prepare the indicators
+
+##Identify DAs belonging to the same CT, and calculate coefficients of variation in population & employment densities
+```{r}
+##Join the employed popu 15+ and DAs
+DA_emp15 <- read.csv("Emp15+_DA_2011.csv")
+da_indicators <- left_join(DAs@data, DA_emp15, by=c("DAUID_I"="GEOUID"))
+da_indicators$empdense <- da_indicators$EMP15/da_indicators$LandArea
+##Calculate the coefficients of variation
+
+cal_COV <- function(ID,data,colName)
+{
+  DA_within <- filter(data, data$CTUID == ID)
+  COV <- sd(DA_within[,colName])/mean(DA_within[,colName])
+  return(COV)
+}
+
+CTUID <- CTs@data$CTUID
+##Coefficients of variation in employment & population density
+COVs_EMP <- sapply(CTUID, function(x) cal_COV(x, da_indicators, "empdense")) 
+COVs_POP <- sapply(CTUID, function(x) cal_COV(x, da_indicators, "POPDENSE"))
+
+##Join the employed popu 15+ and CTs
+CT_emp15 <- read.csv("Emp15+_CT_2011.csv")
+CT_indicators <- left_join(CTs@data,CT_emp15, by=c("CTUID_INT"="CTUID"))
+empdense_CT11 <- CT_indicators$Employed/CT_indicators$LandArea
+```
+
+
+##R2WinBUGS script
+```{r}
+##1. Model file
+sink("model.txt")
+cat("
+    
+    model{
+    
+    for(j in 1:M)
+{
+  for(i in 1:N)
+  {
+  ind[j,i] ~ dnorm(mu[j,i], tau[j])
+  mu[j,i] <- alpha[j] + delta[j]*index[i]
+  }
+  alpha[j] ~ dflat()
+  # tau[j] <- pow(sd[j],-2)
+  # sd[j] ~ dunif(0,100)
+  tau[j] ~ dgamma(0.5,0.0005)
+  }
+  
+  delta[1] ~ dlnorm(0,0.01)
+  for(j in 2:M)
+  {
+    delta[j] ~ dnorm(0,0.001)
+  }
+  
+  index[1:N] ~ car.normal(adj[], weights[], num[],1)
+  # for(i in 1:N)
+  # {
+  #   CTrank[i] <- rank(index[], i)
+  #   hotspot[i] <- step(-CTrank[i]+1090)
+  # }
+
+    for(k in 1:sumNumNeigh)
+    {
+    weights[k] <- 1
+    }
+    }
+    
+    ", fill=TRUE)
+sink()
+
+
+##2.Data related ----------------------------------------------------------
+
+N <- 5452  ##Number of CTs
+M <- 9 ##number of indicators
+
+##2.1.Spatial weight matrix related -----------------------------
+
+neighs <- poly2nb(CTs,queen = T) ##from package "spdep"
+##Get the id of CTs without neighbors
+bin_index <- unlist(lapply(neighs, FUN = function(x){ifelse(x[1]==0, T, F)}))
+remove_index <- which(bin_index==T)
+
+##Mannually specify ten island CTs' neighbors
+island_neighs <- c(5157,1756,751,2950,3771,1108,2183,3749,4660,1231)
+for(i in 1:length(remove_index)){
+  neighs[[remove_index[i]]] = island_neighs[i]
+  neighs[[island_neighs[i]]] = c(neighs[[island_neighs[i]]],remove_index[i])
+}
+
+##Remove the zero elements in "adj"
+adj <- unlist(neighs)
+sumNumNeigh <- length(adj)
+num <- lengths(neighs)
+
+## Data transformation for normality
+skewness <- function(y){
+  x <- y[!is.na(y)]
+  sum((x-mean(x, na.rm=TRUE))^3)/((length(x)-1)*sd(x, na.rm=TRUE)^3)
+}
+
+##The Yeo Johnson transformation
+yeo_johnson <- function(x, lambda) {
+  
+  eps <- .000001
+  not_neg <- which(x >= 0)
+  is_neg  <- which(x < 0)
+  
+  not_neg_trans <- function(x, lambda) {
+    if (abs(lambda) < eps) log(x + 1)
+    else ((x + 1) ^ lambda - 1) / lambda
+  }
+  
+  neg_trans <- function(x, lambda) {
+    if (abs(lambda - 2) < eps) - log(-x + 1)
+    else - ((-x + 1) ^ (2 - lambda) - 1) / (2 - lambda)
+  }
+  
+  x[not_neg] <- not_neg_trans(x[not_neg], lambda)
+  
+  x[is_neg] <- neg_trans(x[is_neg], lambda)
+  
+  return(x)
+  
+}
+
+us_ind <- CTs@data
+popdense_sd <- as.vector(t(scale(yeo_johnson(us_ind$POPUDENSE,0.3))))
+# popdense_sd2 <- as.vector(t(scale(sqrt(us_ind$POPUDENSE))))
+empdense_sd <- as.vector(t(scale(yeo_johnson(empdense_CT11,0.3))))  ##168 NA's
+
+varpop_sd <- as.vector(t(scale(yeo_johnson(COVs_POP,0.1)))) ##54 NA's
+varemp_sd <- as.vector(t(scale(yeo_johnson(COVs_EMP,0.1)))) ##314 NA's
+
+mixuse_sd <- as.vector(t(scale(logit(us_ind$MIX_USE))))
+
+avgda_sd <- as.vector(t(scale(log(us_ind$avgdaV2)))) 
+smlda_sd <- as.vector(t(scale(logit(us_ind$smldaA)))) 
+intden_sd <- as.vector(t(scale(yeo_johnson(us_ind$intden,0.5))))
+perc4_sd <- as.vector(t(scale(logit(us_ind$perc_4more))))
+
+
+ind <- as.matrix(rbind(popdense_sd, empdense_sd, varpop_sd, varemp_sd, mixuse_sd, avgda_sd, smlda_sd, intden_sd, perc4_sd))
+
+data.sim <- list("N","M", "num", "sumNumNeigh", "adj", "ind")
+
+##3. Initials -----------------------------------------------------------
+
+##Specify initial values for missing values
+init_ind1 <- rep(NA, N*M)
+init_ind2 <- rep(NA, N*M)
+NA_id_ind <- which(is.na(ind)==T)
+for(k in NA_id_ind)
+{
+  init_ind1[k] <- 0
+  init_ind2[k] <- 1
+}
+
+ind_init1 <- matrix(init_ind1,nrow = M, ncol = N)
+ind_init2 <- matrix(init_ind2,nrow = M, ncol = N)
+
+##Specify initial values for index, including islands
+index_init1 <- rep(0.2, N)
+index_init2 <- rep(0.1, N)
+
+init1 <- list(alpha=rep(1,M), delta=c(1.5,1.5,0.6,1.5,0.4,-1.4,1.3,1.3,0.8),tau =rep(1,M), index =index_init1, ind=ind_init1)
+init2 <- list(alpha=rep(-1,M), delta=c(0.1,1,1,1,1,1,-1,1,1),tau =rep(0.1,M), index =index_init2, ind=ind_init2)
+
+inits.sim <- list(init1, init2)
+
+##4. Run the model -----------------------------------------------------
+parameters_monitor <- c("tau","alpha", "delta")
+
+bugs_sim <- bugs(data = data.sim, inits = inits.sim, parameters.to.save = parameters_monitor, model.file = "model.txt", n.chains=2, n.iter=7000, n.burnin=2000, n.thin=1, codaPkg = FALSE, debug=TRUE, DIC=F, bugs.directory = "C:/Program Files (x86)/WinBUGS14", working.directory=getwd(), save.history=FALSE)
+
+```
