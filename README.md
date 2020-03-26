@@ -9,7 +9,7 @@ The negative impacts of urban sprawl have been widely studied. There is ample ev
 
 Numerous multi-dimensional approaches have been developed to construct urban sprawl indices. For example, Galster et al. (2001) conceptually defined urban sprawl with eight distinct dimensions: density, continuity, concentration, clustering, centrality, nuclearity, mixed uses, and proximity. Ewing et al. (2003) developed an urban sprawl index at the metropolitan area level with four dimensions of urban forms, namely residential density, street accessibility, land use mix, and degree of centering. This index was developed at the county level as well but with the first two dimensions only. Their research team recently updated the county-level index with all four dimensions, in parallel with the metropolitan area level index (Ewing et al., 2014). Frenkel and Ashkenazi (2008) measured urban sprawl by weighting thirteen variables from three dimensions ??? density, scatterness, and mixture of land uses; Arribas-Bel et al. (2011) proposed a conceptual framework for measuring urban sprawl which is composed of two categories: one, urban morphology with dimensions scattering, connectivity, and availability of open space; and two, internal composition with dimensions density, decentralization, and land-use mix.
 
-Previous studies predominantly study urban sprawl at large-area levels, for example, the Census Metropolitan Area. Analyzing urban sprawl at a finer geographical scale (i.e., smaller area level such as Census Tract) however, is justifiable. Built environments in a small area are more homogeneous with central and outlying areas being more similar, thus better representing residents??? day-to-day activities (Ewing et al., 2014, 2003). Using a smaller area level could potentially lead to the increased explanatory and predictive power of urban sprawl on health outcomes, especially when individual-level rather than ecological analysis is conducted. Developing urban sprawl indices at small-area levels poses challenges for statistical modelling. A majority of past research applies non-spatial modelling. While this might not be an issue for analyses at large-area levels, it is potentially problematic for small-area analyses, given that small-area sprawl indicators (e.g., population density) tend to be similar in adjacent areas (a.k.a. the spatial autocorrelation issue). To address this issue, a spatial version of dimension-reduction statistical approaches such as spatial factor analysis is needed. Otherwise, biased and imprecise inferences could be obtained for urban sprawl estimations.
+Previous studies predominantly study urban sprawl at large-area levels, for example, the Census Metropolitan Area. Analyzing urban sprawl at a finer geographical scale (i.e., smaller area level such as Census Tract) however, is justifiable. Built environments in a small area are more homogeneous with central and outlying areas being more similar, thus better representing residents day-to-day activities (Ewing et al., 2014, 2003). Using a smaller area level could potentially lead to the increased explanatory and predictive power of urban sprawl on health outcomes, especially when individual-level rather than ecological analysis is conducted. Developing urban sprawl indices at small-area levels poses challenges for statistical modelling. A majority of past research applies non-spatial modelling. While this might not be an issue for analyses at large-area levels, it is potentially problematic for small-area analyses, given that small-area sprawl indicators (e.g., population density) tend to be similar in adjacent areas (a.k.a. the spatial autocorrelation issue). To address this issue, a spatial version of dimension-reduction statistical approaches such as spatial factor analysis is needed. Otherwise, biased and imprecise inferences could be obtained for urban sprawl estimations.
 
 Although urban sprawl is a global issue, previous studies have been primarily conducted in the United States. The website of National Cancer Institute (https://gis.cancer.gov/tools/urban-sprawl/) provides nationwide urban sprawl indices at multiple geographical levels (i.e., metropolitan, county, and census tract) in the United States. In contrast, there have been fewer studies that explore urban sprawl in the Canadian context, usually at large-area levels. For example, Ross et al. (2007) created a urban sprawl index at the Canadian Metropolitan Area (CMA) level, which is an unweighted sum of three indicators, namely the proportion of single or detached dwellings in a CMA, dwelling density, and the percentage of CMA population living in an urban core. 
 
@@ -84,7 +84,6 @@ CT: Census Tract; DA: Dissemination Area
 ## Chapter 3: Statistical Method 
 
 The calculation of sprawl indicators has been described in Table 1. This section introduces the statistical approach used to derive the composite urban sprawl index: Bayesian spatial factor analysis. 
-
 
 Originating in psychometrics, factor analysis is a statistical approach to describe the variation and correlation of a set of observable and correlated indicators with a lower number of latent factors that cannot be directly observed or measured (e.g., Brown, 2015). Conceptually, urban sprawl is abstract and unobservable, but manifests in the form of a variety of observable and correlated indicators, for example, those listed in Table 1. In this sense, factor analysis is well-suited for developing an urban sprawl index. Sprawl indicators at a small-area level however, are usually spatially auto-correlated. That is, values of sprawl indicators in adjacent areas are similar. To account for the spatial autocorrelation in statistical inferences of factor analysis, a Bayesian approach is more feasible than a Frequentist approach. 
 
@@ -178,26 +177,20 @@ The CANUE website provides the final composite sprawl index for each Census Trac
 
 ### References 
 
-Arribas-Bel, D., Nijkamp, P., & Scholten, H. (2011). Multidimensional urban sprawl in Europe: A self-organizing map approach. Computers, Environment and Urban Systems, 35(4), 263???275. http://doi.org/10.1016/j.compenvurbsys.2010.10.002
-
+Arribas-Bel, D., Nijkamp, P., & Scholten, H. (2011). Multidimensional urban sprawl in Europe: A self-organizing map approach. Computers, Environment and Urban Systems, 35(4), 266-275. http://doi.org/10.1016/j.compenvurbsys.2010.10.002
 
 Brown, T. A. (2015). Confirmatory Factor Analysis for Applied Research (Second Edi). New York: The Guilford Press.
 
-
 Ewing, R., Brownson, R. C., & Berrigan, D. (2006). Relationship Between Urban Sprawl and Weight of United States Youth. American Journal of Preventive Medicine, 31(6), 464???474. http://doi.org/10.1016/j.amepre.2006.08.020
-
 
 Ewing, R., & Dumbaugh, E. (2009). The Built Environment and Traffic Safety A Review of Empirical Evidence. Journal of Planning Literature, 23(4), 347???367. http://doi.org/10.1177/0885412209335553
 
 
 Ewing, R., & Hamidi, S. (2015). Compactness versus Sprawl: A Review of Recent Evidence from the United States. Journal of Planning Literature, 30(4), 413???432. http://doi.org/10.1177/0885412215595439
 
-
 Ewing, R., Meakins, G., Hamidi, S., & Nelson, A. C. (2014). Relationship between urban sprawl and physical activity, obesity, and morbidity - Update and refinement. Health and Place, 26, 118???126. http://doi.org/10.1016/j.healthplace.2013.12.008
 
-
 Ewing, R., Pendall, R., & Chen, D. (2002). Measuring Sprawl and Its Impact. Smart Growth America. http://doi.org/Cited By (since 1996) 164\rExport Date 14 August 2012
-
 
 Ewing, R., Schmid, T., Killingsworth, R., Zlot, A., & Raudenbush, S. (2003). Relationship between urban sprawl and physical activity, obesity, and morbidity. American Journal of Health Promotion, 18(1), 47???57.
 
