@@ -177,38 +177,31 @@ The CANUE website provides the final composite sprawl index for each Census Trac
 
 ### References 
 
-Arribas-Bel, D., Nijkamp, P., & Scholten, H. (2011). Multidimensional urban sprawl in Europe: A self-organizing map approach. Computers, Environment and Urban Systems, 35(4), 266-275. http://doi.org/10.1016/j.compenvurbsys.2010.10.002
+Arribas-Bel, D., Nijkamp, P., & Scholten, H. (2011). Multidimensional urban sprawl in Europe: A self-organizing map approach. Computers, Environment and Urban Systems, 35(4), 266-275. [http://doi.org/10.1016/j.compenvurbsys.2010.10.002](http://doi.org/10.1016/j.compenvurbsys.2010.10.002)
 
-Brown, T. A. (2015). Confirmatory Factor Analysis for Applied Research (Second Edi). New York: The Guilford Press.
+Brown, T. A. (2015). Confirmatory Factor Analysis for Applied Research (Second Edi). New York: The Guilford Press. [https://www.guilford.com/books/Confirmatory-Factor-Analysis-for-Applied-Research/Timothy-Brown/9781462515363](https://www.guilford.com/books/Confirmatory-Factor-Analysis-for-Applied-Research/Timothy-Brown/9781462515363)
 
-Ewing, R., Brownson, R. C., & Berrigan, D. (2006). Relationship Between Urban Sprawl and Weight of United States Youth. American Journal of Preventive Medicine, 31(6), 464???474. http://doi.org/10.1016/j.amepre.2006.08.020
+Ewing, R., Brownson, R. C., & Berrigan, D. (2006). Relationship Between Urban Sprawl and Weight of United States Youth. American Journal of Preventive Medicine, 31(6), 464-474. [http://doi.org/10.1016/j.amepre.2006.08.020](http://doi.org/10.1016/j.amepre.2006.08.020)
 
-Ewing, R., & Dumbaugh, E. (2009). The Built Environment and Traffic Safety A Review of Empirical Evidence. Journal of Planning Literature, 23(4), 347???367. http://doi.org/10.1177/0885412209335553
+Ewing, R., & Dumbaugh, E. (2009). The Built Environment and Traffic Safety A Review of Empirical Evidence. Journal of Planning Literature, 23(4), 347-367. [http://doi.org/10.1177/0885412209335553](http://doi.org/10.1177/0885412209335553)
 
+Ewing, R., & Hamidi, S. (2015). Compactness versus Sprawl: A Review of Recent Evidence from the United States. Journal of Planning Literature, 30(4), 413-432. [http://doi.org/10.1177/0885412215595439](http://doi.org/10.1177/0885412215595439)
 
-Ewing, R., & Hamidi, S. (2015). Compactness versus Sprawl: A Review of Recent Evidence from the United States. Journal of Planning Literature, 30(4), 413???432. http://doi.org/10.1177/0885412215595439
+Ewing, R., Meakins, G., Hamidi, S., & Nelson, A. C. (2014). Relationship between urban sprawl and physical activity, obesity, and morbidity - Update and refinement. Health and Place, 26, 118-126. [http://doi.org/10.1016/j.healthplace.2013.12.008](http://doi.org/10.1016/j.healthplace.2013.12.008)
 
-Ewing, R., Meakins, G., Hamidi, S., & Nelson, A. C. (2014). Relationship between urban sprawl and physical activity, obesity, and morbidity - Update and refinement. Health and Place, 26, 118???126. http://doi.org/10.1016/j.healthplace.2013.12.008
+Ewing, R., Pendall, R., & Chen, D. (2002). Measuring Sprawl and Its Impact. Smart Growth America. [https://www.smartgrowthamerica.org/app/legacy/documents/MeasuringSprawl.PDF](https://www.smartgrowthamerica.org/app/legacy/documents/MeasuringSprawl.PDF). Retreived, 14 August 2012.
 
-Ewing, R., Pendall, R., & Chen, D. (2002). Measuring Sprawl and Its Impact. Smart Growth America. http://doi.org/Cited By (since 1996) 164\rExport Date 14 August 2012
+Ewing, R., Schmid, T., Killingsworth, R., Zlot, A., & Raudenbush, S. (2003). Relationship between urban sprawl and physical activity, obesity, and morbidity. American Journal of Health Promotion, 18(1), 47-57. [https://doi.org/10.4278%2F0890-1171-18.1.47](https://doi.org/10.4278%2F0890-1171-18.1.47)
 
-Ewing, R., Schmid, T., Killingsworth, R., Zlot, A., & Raudenbush, S. (2003). Relationship between urban sprawl and physical activity, obesity, and morbidity. American Journal of Health Promotion, 18(1), 47???57.
+Frenkel, A., & Ashkenazi, M. (2008). Measuring urban sprawl: How can we deal with it? Environment and Planning B: Urban Analytics and City Science, 35(1), 56-79. [http://doi.org/10.1068/b32155](http://doi.org/10.1068/b32155)
 
+Frumkin, H. (2002). Urban Sprawl and Public Health. Public Health Reports, 117(3), 201-217. [http://doi.org/10.1177/1476127005050030](http://doi.org/10.1177/1476127005050030)
 
-Frenkel, A., & Ashkenazi, M. (2008). Measuring urban sprawl: How can we deal with it? Environment and Planning B: Urban Analytics and City Science, 35(1), 56???79. http://doi.org/10.1068/b32155
+Galster, G., Hanson, R., Ratcliffe, M. R., Wolman, H., Coleman, S., & Freihage, J. (2001). Wrestling Sprawl to the Ground: Defining and measuring an elusive concept. Housing Policy Debate, 12(4), 681-717. [http://doi.org/10.1080/10511482.2001.9521426](http://doi.org/10.1080/10511482.2001.9521426)
 
+Griffin, B. A., Eibner, C., Bird, C. E., Jewell, A., Margolis, K., Shih, R., ??? Escarce, J. J. (2013). The relationship between urban sprawl and coronary heart disease in women. Health & Place, 20, 51???61. [http://doi.org/10.1016/j.healthplace.2012.11.003](http://doi.org/10.1016/j.healthplace.2012.11.003)
 
-Frumkin, H. (2002). Urban Sprawl and Public Health. Public Health Reports, 117(3), 201???217. http://doi.org/10.1177/1476127005050030
+Knaap, G.-J., Song, Y., Ewing, R., & Clifton, K. (2005). Seeing the Elephant: Multi-disciplinary Measures of Urban Sprawl. Landscape Ecology, 1-46. [https://doi.org/10.13016/M20G3H292](https://doi.org/10.13016/M20G3H292)
 
-
-Galster, G., Hanson, R., Ratcliffe, M. R., Wolman, H., Coleman, S., & Freihage, J. (2001). Wrestling Sprawl to the Ground: Defining and measuring an elusive concept. Housing Policy Debate, 12(4), 681???717. http://doi.org/10.1080/10511482.2001.9521426
-
-
-Griffin, B. A., Eibner, C., Bird, C. E., Jewell, A., Margolis, K., Shih, R., ??? Escarce, J. J. (2013). The relationship between urban sprawl and coronary heart disease in women. Health & Place, 20, 51???61. http://doi.org/10.1016/j.healthplace.2012.11.003
-
-
-Knaap, G.-J., Song, Y., Ewing, R., & Clifton, K. (2005). Seeing the Elephant???: Multi-disciplinary Measures of Urban Sprawl. Landscape Ecology, 1???46. http://doi.org/Yes
-
-
-Ross, N. a, Tremblay, S., Khan, S., Crouse, D., Tremblay, M., & Berthelot, J.-M. (2007). Body mass index in urban Canada: neighborhood and metropolitan area effects. American Journal of Public Health, 97(3), 500???8. http://doi.org/10.2105/AJPH.2004.060954
+Ross, N. a, Tremblay, S., Khan, S., Crouse, D., Tremblay, M., & Berthelot, J.-M. (2007). Body mass index in urban Canada: neighborhood and metropolitan area effects. American Journal of Public Health, 97(3), 500-508. [http://doi.org/10.2105/AJPH.2004.060954](http://doi.org/10.2105/AJPH.2004.060954)
 
