@@ -79,23 +79,23 @@ The calculation of sprawl indicators has been described in Table 1. This section
 
 Originating in psychometrics, factor analysis is a statistical approach to describe the variation and correlation of a set of observable and correlated indicators with a lower number of latent factors that cannot be directly observed or measured (e.g., Brown, 2015). Conceptually, urban sprawl is abstract and unobservable, but manifests in the form of a variety of observable and correlated indicators, for example, those listed in Table 1. In this sense, factor analysis is well-suited for developing an urban sprawl index. Sprawl indicators at a small-area level however, are usually spatially auto-correlated. That is, values of sprawl indicators in adjacent areas are similar. To account for the spatial autocorrelation in statistical inferences of factor analysis, a Bayesian approach is more feasible than a Frequentist approach. 
 
-In particular, each standardized sprawl indicator was assumed to follow a Normal distribution with mean $\mu_{ij}$ and variance $\sigma _{j}^{2}$. $\mu_{ij}$ was further decomposed with an intercept $\alpha _{j}$ and a product $\delta _{j} * \vartheta_{j}$, with $\alpha _{j}$ representing the average of sprawl indicator j over Canada and $\delta _{j}$ being the factor loading that indicates the correlation between indicator j and the derived composite sprawl index $\vartheta_{j}$. Regarding priors of the unknown parameters, we specified a non-informative flat prior to $\alpha _{j}$. A log-normal distribution with mean zero and variance 100 was assigned to $\delta _{1}$, constraining $\delta _{1}$ to be positive. This approach is adopted to avoid the ???flip-flop??? problem in that $\delta _{j} * \vartheta_{j}=\left ( - \delta _{j}\right )*\left ( \vartheta_{j} \right )$. ). The remaining $\delta _{j}$'s were specified a prior of a normal distribution with mean 0 and variance 1,000. The spatial prior, intrinsic Conditional Autoregressive (iCAR), was specified to the composite sprawl index $\vartheta_{j}$ attempting to capture the spatial structure within sprawl indicators. Specifically, the expected mean of $\vartheta_{j}$ equals the average values of its neighbours, and the variance of $\vartheta_{j}$ is inversely proportional to the number of its neighbours, m<sub>i</sub>. . We applied the most common approach to define neighbours in small-area analyses: areas sharing at least one vertex. . For identifiability reasons, we set the variance of $\theta$ as 1, equivalent to standardizing $\vartheta_{j}$'s.. A vague prior Gamma(0.5, 0.0005) was specified to the precision of Y<sub>ij</sub> (the inverse of variance $\sigma _{j}^{2}$ ).
+In particular, each standardized sprawl indicator was assumed to follow a Normal distribution with mean $\mu_{ij}$ and variance $\sigma _{j}^{2}$. $\mu_{ij}$ was further decomposed with an intercept $\alpha _{j}$ and a product $\delta _{j} * \vartheta_{j}$, with $\alpha _{j}$ representing the average of sprawl indicator j over Canada and $\delta _{j}$ being the factor loading that indicates the correlation between indicator j and the derived composite sprawl index $\vartheta_{j}$. Regarding priors of the unknown parameters, we specified a non-informative flat prior to $\alpha _{j}$. A log-normal distribution with mean zero and variance 100 was assigned to $\delta _{1}$, constraining $\delta _{1}$ to be positive. This approach is adopted to avoid the ???flip-flop??? problem in that $\delta _{j} * \vartheta_{j}=\left ( - \delta _{j}\right )*\left ( \vartheta_{j} \right )$. ). The remaining $\delta _{j}$'s were specified a prior of a normal distribution with mean 0 and variance 1,000. The spatial prior, intrinsic Conditional Autoregressive (iCAR), was specified to the composite sprawl index $\vartheta_{j}$ attempting to capture the spatial structure within sprawl indicators. Specifically, the expected mean of $\vartheta_{j}$ equals the average values of its neighbours, and the variance of $\vartheta_{j}$ is inversely proportional to the number of its neighbours, m<sub>i</sub>. . We applied the most common approach to define neighbours in small-area analyses: areas sharing at least one vertex. . For identifiability reasons, we set the variance of $\theta$ as 1, equivalent to standardizing $\vartheta_{j}$'s. A vague prior Gamma(0.5, 0.0005) was specified to the precision of Y<sub>ij</sub> (the inverse of variance $\sigma _{j}^{2}$ ).
 
 <img src="http://latex.codecogs.com/gif.latex?Y_{ij}\sim  Normal(\mu _ ij},\sigma _{j}^{2})" border="0"/>
 
-$\mu _{ij}= \alpha _{j}+\delta _{j} * \theta _{i}$
+<img src="http://latex.codecogs.com/gif.latex?\mu _{ij}= \alpha _{j}+\delta _{j} * \theta _{i}" border="0"/>
 
-$\alpha _{j} \sim Uniform(-\infty ,+\infty )$
+<img src="http://latex.codecogs.com/gif.latex?\alpha _{j} \sim Uniform(-\infty ,+\infty)" border="0"/>
 
-$\log \delta _{1}\sim  Normal (0,100)$
+<img src="http://latex.codecogs.com/gif.latex?\log \delta _{1}\sim  Normal (0,100)" border="0"/>
 
-$\delta _{j,j\neq 1}\sim  Normal (0,1000)$
+<img src="http://latex.codecogs.com/gif.latex?\delta _{j,j\neq 1}\sim  Normal (0,1000)" border="0"/>
 
-$\theta _{i}\sim  Normal (\frac{_{k\neq i}^{\sum w_{i,k}\theta _{k}}}m_{i},\frac{\sigma _{\theta }^{2}}{m_{i}})$
+<img src="http://latex.codecogs.com/gif.latex?\theta _{i}\sim  Normal (\frac{_{k\neq i}^{\sum w_{i,k}\theta _{k}}}m_{i},\frac{\sigma _{\theta }^{2}}{m_{i}})" border="0"/>
 
-$\sigma _{\theta }^{2} = 1$
+<img src="http://latex.codecogs.com/gif.latex?\sigma _{\theta }^{2} = 1" border="0"/>
 
-$\sigma_{j}^{2}\sim IGamma(0.5,0.0005)$
+<img src="http://latex.codecogs.com/gif.latex?\sigma_{j}^{2}\sim IGamma(0.5,0.0005)" border="0"/>
 
 ## Chapter 4: Limitations 
 
