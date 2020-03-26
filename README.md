@@ -111,7 +111,7 @@ Several limitations of the sprawl index should be acknowledged. First, due to da
 
 ## Chapter 5: Metadata
 
-The CANUE website provides the final composite sprawl index for each Census Tract as well as the indicators used to create the index (in a CSV file). In total, 11 variables are provided by CANUE. Table 2 shows the name and a short description of each variable.
+The CANUE website provides the final composite sprawl index for each Census Tract as well as additional information from the posterior distribution. In total, 5 variables are provided. Table 2 shows the name and a short description of each variable.
 
 <table class="tg">
   <tr>
@@ -119,48 +119,28 @@ The CANUE website provides the final composite sprawl index for each Census Trac
     <th class="tg-fymr">Description </th>
   </tr>
   <tr>
-    <td class="tg-c3ow">SPAWL</td>
-    <td class="tg-0pky">Composite sprawl score of a CT, with mean 0 and standard deviation 1</td>
+    <td class="tg-c3ow">sprawl</td>
+    <td class="tg-0pky">Composite sprawl score of a census tract, with mean 0 and standard deviation 1. The posterior mean from the Bayesian model.</td>
   </tr>
   <tr>
-    <td class="tg-c3ow">PROB</td>
-    <td class="tg-0pky">Probability of being most sprawl, ranging between 0 and 1</td>
+    <td class="tg-c3ow">lower</td>
+    <td class="tg-0pky">The 2.5% percentile of the posterior distribution of the composite score</td>
   </tr>
   <tr>
-    <td class="tg-c3ow">POPDEN</td>
-    <td class="tg-0pky">Gross population density of a CT</td>
+    <td class="tg-c3ow">median</td>
+    <td class="tg-0pky">The median of the posterior distribution of the composite score</td>
   </tr>
   <tr>
-    <td class="tg-c3ow">EMPDEN</td>
-    <td class="tg-0pky">Gross employment density of a CT</td>
+    <td class="tg-c3ow">upper</td>
+    <td class="tg-0pky">The 97.5% percentile of the posterior distribution of the composite score</td>
   </tr>
   <tr>
-    <td class="tg-c3ow">VC_POPDEN</td>
-    <td class="tg-0pky">Coefficient of variation in DAs population density within a CT</td>
+    <td class="tg-c3ow">CTUID</td>
+    <td class="tg-0pky">Unique identifier for each census tract</td>
   </tr>
   <tr>
-    <td class="tg-c3ow">VC_EMPDEN</td>
-    <td class="tg-0pky">Coefficient of variation in DAs employment density within a CT</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">LANDMIX</td>
-    <td class="tg-0pky">Land use mix within a CT, ranging between 0 and 1</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">AVGDA </td>
-    <td class="tg-0pky">Average area size of DAs within a CT</td>
-  </tr>
-  <tr>
-    <td class="tg-baqh">SMLDA</td>
-    <td class="tg-0lax">The percentage of small DAs within a CT</td>
-  </tr>
-  <tr>
-    <td class="tg-baqh">INTERDEN</td>
-    <td class="tg-0lax">Intersection (3-or-more way) density within a CT</td>
-  </tr>
-  <tr>
-    <td class="tg-baqh">PERC4INTER</td>
-    <td class="tg-0lax">The percentage of 4-or-more way intersections within a CT</td>
+    <td class="tg-c3ow">POLYID</td>
+    <td class="tg-0pky">Polygon identifer. A list from 1 to n.</td>
   </tr>
 </table>
 
