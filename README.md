@@ -96,8 +96,6 @@ Regarding priors of the unknown parameters, we specified a non-informative flat 
 
 ![](misc/equation6.png)
 
-<img src="http://latex.codecogs.com/gif.latex?\theta {i}\sim Normal (\frac{{k\neq i}^{\sum w_{i,k}\theta {k}}}m{i},\frac{\sigma {\theta }^{2}}{m{i}})" border="0"/>
-
 <img src="http://latex.codecogs.com/svg.latex?\sigma _{\theta }^{2} = 1" border="0"/>
 
 <img src="http://latex.codecogs.com/svg.latex?\sigma_{j}^{2}\sim IGamma(0.5,0.0005)" border="0"/>
