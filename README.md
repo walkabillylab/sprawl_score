@@ -20,14 +20,6 @@ This study included urban sprawl indicators along four dimensions, density, mix 
 
 ### Table 1: indicators used to develop the composite urban sprawl index 
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-fymr{font-weight:bold;border-color:inherit;text-align:left;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
 <table class="tg">
   <tr>
     <th class="tg-fymr">Sprawl Dimension</th>
@@ -79,7 +71,7 @@ This study included urban sprawl indicators along four dimensions, density, mix 
     <td class="tg-0pky"># of 4-or-more way intersections divided by total # of intersections within a CT</td>
   </tr>
 </table>
-CT: Census Tract; DA: Dissemination Area
+Notes. CT = Census Tract; DA = Dissemination Area
 
 ## Chapter 3: Statistical Method 
 
