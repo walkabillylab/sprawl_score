@@ -93,6 +93,7 @@ In particular, each standardized sprawl indicator was assumed to follow a Normal
 
 <img src="http://latex.codecogs.com/gif.latex?\theta _{i}\sim  Normal (\frac{_{k\neq i}^{\sum w_{i,k}\theta _{k}}}m_{i},\frac{\sigma _{\theta }^{2}}{m_{i}})" border="0"/>
 
+
 <img src="http://latex.codecogs.com/gif.latex?\sigma _{\theta }^{2} = 1" border="0"/>
 
 <img src="http://latex.codecogs.com/gif.latex?\sigma_{j}^{2}\sim IGamma(0.5,0.0005)" border="0"/>
