@@ -86,11 +86,6 @@ cat("
   }
   
   index[1:N] ~ car.normal(adj[], weights[], num[],1)
-  # for(i in 1:N)
-  # {
-  #   CTrank[i] <- rank(index[], i)
-  #   hotspot[i] <- step(-CTrank[i]+1090)
-  # }
 
     for(k in 1:sumNumNeigh)
     {
@@ -104,7 +99,7 @@ sink()
 
 ##2.Data related ----------------------------------------------------------
 
-N <- 5452  ##Number of CTs
+N <- 5452  ##Number of CTs, change to 5721 for the 2016 dataset
 M <- 9 ##number of indicators
 
 ##2.1.Spatial weight matrix related -----------------------------
@@ -126,51 +121,19 @@ adj <- unlist(neighs)
 sumNumNeigh <- length(adj)
 num <- lengths(neighs)
 
-## Data transformation for normality
-skewness <- function(y){
-  x <- y[!is.na(y)]
-  sum((x-mean(x, na.rm=TRUE))^3)/((length(x)-1)*sd(x, na.rm=TRUE)^3)
-}
-
-##The Yeo Johnson transformation
-yeo_johnson <- function(x, lambda) {
-  
-  eps <- .000001
-  not_neg <- which(x >= 0)
-  is_neg  <- which(x < 0)
-  
-  not_neg_trans <- function(x, lambda) {
-    if (abs(lambda) < eps) log(x + 1)
-    else ((x + 1) ^ lambda - 1) / lambda
-  }
-  
-  neg_trans <- function(x, lambda) {
-    if (abs(lambda - 2) < eps) - log(-x + 1)
-    else - ((-x + 1) ^ (2 - lambda) - 1) / (2 - lambda)
-  }
-  
-  x[not_neg] <- not_neg_trans(x[not_neg], lambda)
-  
-  x[is_neg] <- neg_trans(x[is_neg], lambda)
-  
-  return(x)
-  
-}
-
 us_ind <- CTs@data
-popdense_sd <- as.vector(t(scale(yeo_johnson(us_ind$POPUDENSE,0.3))))
-# popdense_sd2 <- as.vector(t(scale(sqrt(us_ind$POPUDENSE))))
-empdense_sd <- as.vector(t(scale(yeo_johnson(empdense_CT11,0.3))))  ##168 NA's
+popdense_sd <- as.vector(t(scale(us_ind$POPUDENSE,T,T)))
+empdense_sd <- as.vector(t(scale(empdense_CT11,T,T))) ##168 NA's
 
-varpop_sd <- as.vector(t(scale(yeo_johnson(COVs_POP,0.1)))) ##54 NA's
-varemp_sd <- as.vector(t(scale(yeo_johnson(COVs_EMP,0.1)))) ##314 NA's
+varpop_sd <- as.vector(t(scale(COVs_POP,T,T))) ##54 NA's
+varemp_sd <- as.vector(t(scale(COVs_EMP,T,T))) ##314 NA's
 
-mixuse_sd <- as.vector(t(scale(logit(us_ind$MIX_USE))))
+mixuse_sd <- as.vector(t(scale(us_ind$MIX_USE,T,T)))
 
-avgda_sd <- as.vector(t(scale(log(us_ind$avgdaV2)))) 
-smlda_sd <- as.vector(t(scale(logit(us_ind$smldaA)))) 
-intden_sd <- as.vector(t(scale(yeo_johnson(us_ind$intden,0.5))))
-perc4_sd <- as.vector(t(scale(logit(us_ind$perc_4more))))
+avgda_sd <- as.vector(t(scale(us_ind$avgdaV2,T,T))) 
+smlda_sd <- as.vector(t(scale(us_ind$smldaA,T,T))) 
+intden_sd <- as.vector(t(scale(us_ind$intden,T,T)))
+perc4_sd <- as.vector(t(scale(us_ind$perc_4more,T,T)))
 
 
 ind <- as.matrix(rbind(popdense_sd, empdense_sd, varpop_sd, varemp_sd, mixuse_sd, avgda_sd, smlda_sd, intden_sd, perc4_sd))
