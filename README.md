@@ -2,6 +2,10 @@
 Developed for the Canadian Urban Environmental Health Research Consortium (CANUE)
 [https://canue.ca/](https://canue.ca/)
 
+### Please cite the data
+
+Luan, H., Fuller, D. 2020. "Urban Sprawl Index for Canada". [https://doi.org/10.7910/DVN/YQX0SW](https://doi.org/10.7910/DVN/YQX0SW). Harvard Dataverse.
+
 ## Chapter 1: Background
 Urban sprawl is of interested to multiple disciplines including, urban planning, public health, economics, and transportation engineering (Knaap, Song, Ewing, & Clifton, 2005). A consensus on the definition of urban sprawl is lacking. Urban sprawl is loosely defined as inefficient, unordered, and unorganized urban growth, which manifests in the forms of decentralization, fragmentation, and low-density of residence (Ewing, Pendall, & Chen, 2002). 
 
